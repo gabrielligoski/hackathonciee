@@ -221,7 +221,7 @@ form button:hover {
     100% { transform: translate3d(0, 0, 0); }
 }
 .animated-title {
-    color: #222;
+    color: #6E6EAB;
     font-family: Roboto, Arial, sans-serif;
     height: 90vmin;
     left: 50%;
@@ -244,7 +244,7 @@ form button:hover {
     display: block;
 }
 .animated-title > div.text-top {
-    border-bottom: 1vmin solid #000;
+    border-bottom: 1vmin solid #00314A;
     top: 0;
 }
 .animated-title > div.text-top div {
@@ -254,8 +254,8 @@ form button:hover {
     bottom: 0;
     transform: translate(0, 100%);
 }
-.animated-title > div.text-top div span:first-child {
-    color: #767676;
+.animated-title > div.text-top div span {
+    color: #95F7B1;
 }
 .animated-title > div.text-bottom {
     bottom: 0;
