@@ -8,7 +8,7 @@ function Presentation() {
 
     useEffect(() => {
         setTimeout(function(){
-            navigate('/ola');
+            navigate('/welcome');
         }, 5000);
         // eslint-disable-next-line
     }, [])
@@ -18,7 +18,7 @@ function Presentation() {
     }
 
     return (
-        <div className="wrapper w-full h-full" onClick={() => pageChange('/ola')}>
+        <div className="wrapper w-full h-full" onClick={() => pageChange('/welcome')}>
             <img src={logo} className="z-50 absolute m-16 w-48" alt="logo"/>
             <div className="animated-title">
                 <div className="text-top text-4xl text-right">
@@ -32,18 +32,6 @@ function Presentation() {
                 </div>
             </div>
 
-            <ul className="bg-bubbles">
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-                <li></li>
-            </ul>
         </div>
     );
 }

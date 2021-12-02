@@ -81,13 +81,12 @@ export default function Chat() {
 
 
     useEffect(() => {
+        setTimeout(function () {
+            navigate('/options');
+        }, 24000);
         next()
         // eslint-disable-next-line
     }, [])
-
-    function pageChange(route) {
-        navigate(route);
-    }
 
     return (
         <div className="flex items-center justify-center text-4xl text-left">
