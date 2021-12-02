@@ -1,12 +1,20 @@
 import './Ceci.css';
 import logo from "../img/logo2.png";
 import ceci from "../img/ceci.png";
-import React, {useRef} from "react";
+import React, {useEffect, useState} from "react";
 import Chat from "./Chat";
-
+import {Fade} from "@mui/material";
 
 
 function Ceci() {
+    const [fade, setFade] = useState(false);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setFade(true);
+        }, 3000)
+        // eslint-disable-next-line
+    }, [])
 
     return (
         <div className="wrapper w-full h-full">
@@ -18,7 +26,11 @@ function Ceci() {
                     <span>&nbsp;sua assistente virtual</span>
                 </div>
             </div>
-            <Chat/>
+            <Fade className={"flex items-center justify-center"} in={fade} enter={800}>
+                <div>
+                    <Chat/>
+                </div>
+            </Fade>
             <ul className="bg-bubbles">
                 <li></li>
                 <li></li>

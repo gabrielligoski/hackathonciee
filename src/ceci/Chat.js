@@ -1,13 +1,16 @@
 import React, {useEffect, useState} from "react";
+import parse from 'html-react-parser';
+import {useNavigate} from "react-router-dom";
 
 export default function Chat() {
     class TextScramble {
         constructor() {
-            this.chars = '!<>-_\\/[]{}—=+*^?#________'
+            this.chars = '!-_\\/[]{}—=+*^?#________'
+            this.update = this.update.bind(this)
         }
 
-        setText(newText, old) {
-            const oldText = old // todo provavel problema que crasha o scramble
+        setText(newText) {
+            const oldText = text // todo provavel problema que crasha o scramble
             const length = Math.max(oldText.length, newText.length)
             const promise = new Promise((resolve) => this.resolve = resolve)
             this.queue = []
@@ -28,7 +31,7 @@ export default function Chat() {
         update() {
             let output = ''
             let complete = 0
-            for (let i = 0, n = this.queue.length === undefined ? 0 : this.queue.length; i < n; i++) {
+            for (let i = 0, n = this.queue.length; i < n; i++) {
                 let {from, to, start, end, char} = this.queue[i]
                 if (this.frame >= end) {
                     complete++
@@ -43,6 +46,7 @@ export default function Chat() {
                     output += from
                 }
             }
+            console.log(output)
             setText(output)
             if (complete === this.queue.length) {
                 this.resolve()
@@ -57,28 +61,23 @@ export default function Chat() {
         }
     }
 
-    const [text, setText] = useState('oi');
+    const [text, setText] = useState('');
     const scramble = new TextScramble();
-
+    const navigate = useNavigate();
     const phrases = [
-        'Neo,',
-        'sooner or later',
-        'you\'re going to realize',
-        'just as I did',
-        'that there\'s a difference',
-        'between knowing the path',
-        'and walking the path'
+        'Oi, tudo bem?',
+        'Meu nome é Cecília',
+        'Vou te guiar aqui no CIEE',
+        'Para começar, me fala qual é seu objetivo aqui'
     ]
-
-
-    let counter = 0
-
     const next = () => {
-        scramble.setText(phrases[counter], counter === 0 ? phrases[counter] : phrases[counter - 1]).then(() => {
-            setTimeout(next, 800)
+        scramble.setText(phrases[counter]).then(() => {
+            setTimeout(next, 5000)
         })
         counter = (counter + 1) % phrases.length
     }
+
+    let counter = 0
 
 
     useEffect(() => {
@@ -86,9 +85,13 @@ export default function Chat() {
         // eslint-disable-next-line
     }, [])
 
+    function pageChange(route) {
+        navigate(route);
+    }
+
     return (
         <div className="flex items-center justify-center text-4xl text-left">
-            {text}
+            {parse(text)}
         </div>
     );
 }
