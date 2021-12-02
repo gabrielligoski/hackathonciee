@@ -1,16 +1,29 @@
-import './first.css';
-import logo from "../../img/logo2.png";
-import ceci from "../../img/ceci.png";
+import './Presentation.css';
+import logo from "../img/logo2.png";
+import {useNavigate} from "react-router-dom";
+import {useEffect} from "react";
 
-function First() {
+function Presentation() {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        setTimeout(function(){
+            navigate('/ola');
+        }, 5000);
+        // eslint-disable-next-line
+    }, [])
+
+    function pageChange(route) {
+        navigate(route);
+    }
+
     return (
-        <div className="wrapper w-full h-full">
+        <div className="wrapper w-full h-full" onClick={() => pageChange('/ola')}>
             <img src={logo} className="z-50 absolute m-16 w-48" alt="logo"/>
-            <img src={ceci} className="z-50 absolute bottom-0 right-0 m-16 w-64" alt="ceci"/>
             <div className="animated-title">
                 <div className="text-top text-4xl text-right">
                     <div className="w-full">
-                        <span>Você deu mais um passo em direcão ao ola</span>
+                        <span>Você deu mais um passo em direcão ao sucesso</span>
                         <span>Bem vindo ao CIEE</span>
                     </div>
                 </div>
@@ -35,4 +48,4 @@ function First() {
     );
 }
 
-export default First;
+export default Presentation;
