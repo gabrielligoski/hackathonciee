@@ -89,7 +89,7 @@ export default function Chat() {
     }, [])
 
     return (
-        <div className="flex items-center justify-center text-4xl text-left">
+        <div className="flex items-center justify-center text-4xl text-left font-mono">
             {parse(text)}
         </div>
     );

@@ -27,7 +27,7 @@ function Presentation() {
                         <span>Bem vindo ao CIEE</span>
                     </div>
                 </div>
-                <div className="text-bottom text-3xl">
+                <div className="text-bottom text-3xl font-mono">
                     <div>“Se a oportunidade não bater, construa uma porta”,<br/> Milton Berle</div>
                 </div>
             </div>

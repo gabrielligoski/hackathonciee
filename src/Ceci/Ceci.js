@@ -17,7 +17,7 @@ function Ceci() {
     }, [])
 
     return (
-        <div className="wrapper w-full h-full">
+        <div className="wrapper w-full h-full font-mono">
             <img src={logo} className="z-50 absolute m-16 w-48" alt="logo"/>
             <Fade in={true} timeout={5000}>
                 <img src={ceci} className="z-50 absolute bottom-0 right-0 m-16 w-64" alt="ceci"/>
